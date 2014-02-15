@@ -1,0 +1,25 @@
+# Ignore serveral upload and file directories.
+/fileadmin/user_upload/
+/fileadmin/_temp_/
+/uploads/
+
+# Ignore cache
+/typo3conf/temp_CACHED*
+/typo3conf/temp_fieldInfo.php
+
+# Ignore symlinked src
+/typo3_src
+
+# Ignore temp directory.
+/typo3temp/
+
+# generated
+/typo3conf/PackageStates.php
+
+# Sensitive information, should better be split into two files,
+# one for passwords, one for general config
+/typo3conf/LocalConfiguration.php
+
+# Extensions installed with extension manager
+# Maybe better include extension into git for simple deployment?
+/typo3conf/ext/*
