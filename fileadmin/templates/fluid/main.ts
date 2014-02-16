@@ -1,6 +1,8 @@
 ###
 # Master template file
 #
+# http://docs.typo3.org/typo3cms/TyposcriptReference/ContentObjects/Fluidtemplate/Index.html
+# http://t3n.de/magazin/seitentemplates-fluid-226788/
 # Thanks http://www.marcoseiler.de/typo3/typo3-inhalte-ausgeben/fluidtemplate-typoscript.html
 #
 
@@ -18,17 +20,21 @@ page.includeCSS {
 	file12 = fileadmin/templates/web/css/main.css
 }
 
+# <script>window.jQuery || document.write('<script src="{f:uri.resource(path:'../web/js/vendor/jquery-1.10.1.min.js')}"><\/script>')</script>
+# <script src="js/vendor/bootstrap.min.js"></script>
+# <script src="js/main.js"></script>
+# Check out: https://github.com/FluidTYPO3/vhs
 page.includeJS {
 	file1 = fileadmin/templates/web/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js
+	#CDN file10 = fileadmin/templates/web/js/vendor/jquery-1.10.1.min.js
+	file11 = fileadmin/templates/web/js/vendor/bootstrap.min.js
+	file12 = fileadmin/templates/web/js/main.js
 }
 
 page.10 = FLUIDTEMPLATE
 page.10 {
-	#template = FILE
-	#template.file = fileadmin/templates/web/main.htm
-	#variables {
-	#	content < styles.content.get
-	file = fileadmin/templates/fluid/layouts/ContentLayout.htm
+	template = FILE
+	template.file = fileadmin/templates/fluid/main.htm
 	partialRootPath = fileadmin/templates/fluid/partials/
 	layoutRootPath = fileadmin/templates/fluid/layouts/
 	variables {
@@ -44,3 +50,22 @@ page.10 {
 		#footerNavi < temp.footerNavi
 	}
 }
+
+
+
+json = PAGE
+json {
+	typeNum = 999
+
+	config {
+		disableAllHeaderCode = 1
+		additionalHeaders = Content-type:application/json
+		xhtml_cleaning = 0
+		admPanel = 0
+	}
+
+	# http://docs.typo3.org/typo3cms/ExtbaseFluidBook/8-Fluid/2-using-different-output-formats.html
+	10 =< tt_content.list.20.kitsharedcalendar_sharedcalendar
+}
+
+<INCLUDE_TYPOSCRIPT:source="FILE:fileadmin/templates/fluid/SharedCalendar.ts">
