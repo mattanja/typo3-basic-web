@@ -18,7 +18,7 @@
 
 # Sensitive information, should better be split into two files,
 # one for passwords, one for general config
-/typo3conf/LocalConfiguration.php
+/typo3conf/LocalConfiguration.user.php
 
 # Extensions installed with extension manager
 # Maybe better include extension into git for simple deployment?
